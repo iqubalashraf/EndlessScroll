@@ -53,11 +53,7 @@ class MainActivity : AppCompatActivity() {
         App.executors.diskIO().execute {
             list = H.getMoreData(totalItemsCount)
             App.executors.mainThread().execute {
-                if (append) {
-                    adapter.list.addAll(ArrayList(list))
-                }else{
-                    adapter.list = ArrayList(list)
-                }
+                adapter.list.addAll(ArrayList(list))
                 adapter.notifyDataSetChanged()
                 loader.visibility = View.GONE
             }
